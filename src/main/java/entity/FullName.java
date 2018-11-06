@@ -14,11 +14,18 @@ public class FullName {
     @Column(name = "first_name")
     private String firstName;
 
+    @Column(name = "last_name")
+    private String lastName;
+
     @Column(name = "middle_name")
     private String middleName;
 
-    @Column(name = "last_name")
-    private String lastName;
+    public FullName(int id, String firstName, String lastName, String middleName) {
+        this.id = id;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.middleName = middleName;
+    }
 
     public int getId() {
         return id;
@@ -57,8 +64,8 @@ public class FullName {
         return "FullName{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", middleName='" + middleName + '\'' +
                 '}';
     }
 
