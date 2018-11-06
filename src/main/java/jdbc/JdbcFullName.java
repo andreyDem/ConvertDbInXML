@@ -19,12 +19,12 @@ public class JdbcFullName {
         this.connectionDB = connectionDB;
     }
 
-    public List<FullName> getAllDataList(){
+    public List<FullName> getAllDataList() {
         List<FullName> fullNameList = new ArrayList<>();
-        try(Connection connection = connectionDB.getConnection()){
-            PreparedStatement preparedStatement = connection.prepareStatement(getAllData);
+        try (Connection connection = connectionDB.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(getAllData)) {
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 fullNameList.add(new FullName(
                         resultSet.getInt("id"),
                         resultSet.getString("last_name"),
@@ -33,7 +33,7 @@ public class JdbcFullName {
                 ));
             }
             return fullNameList;
-        } catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
