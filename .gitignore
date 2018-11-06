@@ -1,0 +1,11 @@
+.gradle/
+.idea/**
+build/
+gradlew
+!build/classes/main
+*.class
+out/
+*.iml
+!main/java/project
+
+
