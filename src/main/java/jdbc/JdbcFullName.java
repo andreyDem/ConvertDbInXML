@@ -19,7 +19,7 @@ public class JdbcFullName {
         this.connectionDB = connectionDB;
     }
 
-    public List<FullName> getAllDataList(FullName fullName){
+    public List<FullName> getAllDataList(){
         List<FullName> fullNameList = new ArrayList<>();
         try(Connection connection = connectionDB.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(getAllData);
