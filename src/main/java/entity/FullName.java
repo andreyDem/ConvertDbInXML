@@ -11,16 +11,16 @@ public class FullName {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "first_name")
-    private String firstName;
-
     @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "first_name")
+    private String firstName;
 
     @Column(name = "middle_name")
     private String middleName;
 
-    public FullName(int id, String firstName, String lastName, String middleName) {
+    public FullName(int id, String lastName, String firstName, String middleName) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
