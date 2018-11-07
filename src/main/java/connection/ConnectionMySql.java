@@ -4,26 +4,31 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConnectionMySql implements ConnectionDB{
+public class ConnectionMySql implements ConnectionDB {
     //I have timezone error when connect to db
     private static final String dataBaseURL = "jdbc:mysql://localhost:3306/employeeList" +
-            "?verifyServerCertificate=false"+
-            "&useSSL=false"+
-            "&requireSSL=false"+
-            "&useLegacyDatetimeCode=false"+
-            "&amp"+
+            "?verifyServerCertificate=false" +
+            "&useSSL=false" +
+            "&requireSSL=false" +
+            "&useLegacyDatetimeCode=false" +
+            "&amp" +
             "&serverTimezone=UTC";
-    private static final String mySqlDriver = "com.mysql.jdbc.Driver";
+    private static final String mySqlDriver = "com.mysql.cj.jdbc.Driver";
     private static final String login = "root";
     private static final String password = "root";
-
 
     private static ConnectionMySql connectionMySql;
 
     public ConnectionMySql() {
     }
 
-
+    static {
+        try {
+            Class.forName(mySqlDriver);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static ConnectionMySql getConnectionMySQL() {
         if (connectionMySql == null) {
