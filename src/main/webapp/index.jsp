@@ -23,7 +23,7 @@
         padding: 5px;
         text-align: center;
     }
-</style>
+    </style>
 <body>
 <h3 style="text-align: left">Таблица ФИО</h3>
 <table>
