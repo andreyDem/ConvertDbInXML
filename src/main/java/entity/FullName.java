@@ -1,23 +1,11 @@
 package entity;
 
-import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
-@Table(name = "fullName")
 public class FullName {
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
-    @Column(name = "last_name")
     private String lastName;
-
-    @Column(name = "first_name")
     private String firstName;
-
-    @Column(name = "middle_name")
     private String middleName;
 
     public FullName(int id, String lastName, String firstName, String middleName) {
@@ -25,6 +13,9 @@ public class FullName {
         this.lastName = lastName;
         this.firstName = firstName;
         this.middleName = middleName;
+    }
+
+    public FullName() {
     }
 
     public int getId() {
